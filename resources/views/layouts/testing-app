@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{{asset('mdb/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{{asset('mdb/css/mdb.min.css')}}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{{asset('mdb/css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+          <nav class="navbar navbar-expand-lg navbar-dark green">
+                <a class="navbar-brand" href="#">Ruk.LK</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigationbar" aria-controls="navigationbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigationbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ruk Wiki</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Forum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log in</a>
+                        </li>
+                    </ul>
+            
+                </div>
+            </nav> 
+
+    @yield('pagecontent')
+    
+    <footer class="page-footer dark green text-center txt-md-left pt-4 mt-4">
+            <div class="container-fluid text-center txt-md-left">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="title"> Ruk.lk </h5>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque itaque repudiandae, dolorum corrupti, enim facilis repellat labore cupiditate suscipit tempore consectetur ratione. Animi dolorem enim delectus commodi quidem, nostrum deleniti.</p>
+                </div> 
+                <hr class="hidden-md-up">
+                <div class="col-md-6">
+                  <h5 class="title">Our services</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="#">Ruk Wiki</a></li>
+                    <li><a href="#">Forum</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center mb-3">
+              <a mdbBtn floating='true' size='sm' class="btn-fb waves-light" mdbWaveEffect>
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a mdbBtn floating='true' size='sm' class="btn-li waves-light" mdbWaveEffect>
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a mdbBtn floating='true' size='sm' class="btn-tw waves-light" mdbWaveEffect>
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a mdbBtn floating='true' size='sm' class="btn-gplus waves-light" mdbWaveEffect>
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a mdbBtn floating='true' size='sm' class="btn-ins waves-light" mdbWaveEffect>
+                <i class="fa fa-instagram"></i>
+              </a>
+            </div>
+          
+            <div class="footer-copyright text-center py-3">
+              <div class="container-fluid">
+                © UCSC 2nd year gruop project / Group IS-04
+              </div>
+            </div>
+          </footer>
+    
+
+    
+    
+    <script type="text/javascript" src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{asset('mdb/js/popper.min.js')}}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{asset('mdb/js/bootstrap.min.js')}}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{{asset('mdb/js/mdb.min.js')}}"></script>
+</body>
+
+</html>
