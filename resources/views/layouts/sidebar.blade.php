@@ -11,7 +11,7 @@
             </a>
             <a href="/user/{{Auth::user()->id}}/edit" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-user mr-3"></i>Profile</a>
-            <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <a href="/product/create" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-table mr-3"></i>Add Products</a>
             <a href="#" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-map mr-3"></i> Delete Products</a>
