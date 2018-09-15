@@ -1,9 +1,9 @@
 @extends('layouts.app')
-
+@include('layouts.header')
 @section('content')
-@include('layouts.registerform') 
-  <div class="view jarallax" data-jarallax='{"speed":0.2 }' style="background-image: url('{{asset("images/main-cover.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center" >
-        <div class="mask rgba-white-light d-flex justyfy-content-center align-items-center">
+
+  <div class="view jarallax" data-jarallax='{"speed":0.2 }' style="background-image: url('{{asset("images/main-cover.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center; height:75% " >
+        <div class="mask rgba-white-light d-flex justyfy-content-center align-items-center" style="width:100%">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 white-text text-center">
@@ -11,7 +11,6 @@
                             <a class="green-text font-weight-bold">.LK</a>
                         </h1>
                         <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 green-text font-weight-bold wow fadeInDown" data-wow-delay="0.3s">Make a green world</h5>
-                        
                     </div>
                 </div>
             </div>
@@ -32,10 +31,7 @@
                         <a href="" class="green-text"><h4 class="font-weight-bold mt-2 mb-3">Buyer</h4></a>
                         <div class="container">
                             <p>Are you interst in buying plants ? So here is the chance. Come and Join with us</p>
-                             <!-- modal import-->                      
-                             <div class="text-center">
-                             <a href="" class="btn btn-rounded green" data-toggle="modal" data-target="#RegistrationForm" value="Volunteer" name='register' data-user="Buyer">Register</a>
-                            </div>                                                                           
+                                                                                                       
                         </div>
                     </div>
                 </div>
@@ -49,12 +45,7 @@
                     <div class="card-body">
                             <a href="" class="green-text"><h4 class="font-weight-bold mt-2 mb-3">Seller</h4></a>
                             <div class="container">
-                                <p>Are you Selling plants? Do you want to meet customers ? So here is the chance. Come and Join with us</p>
-                               <!-- modal import-->                
-                             <div class="text-center">
-                             <button type="submit" href="" class="btn btn-rounded green" data-toggle="modal" data-target="#RegistrationForm" value="Seller" name='register' data-user="Seller">Register</a>
-                            
-                            </div>                             
+                                <p>Are you Selling plants? Do you want to meet customers ? So here is the chance. Come and Join with us</p>                             
                             
                             </div>
                         </div>
@@ -74,7 +65,7 @@
                                 <p>Are you a volunteer ? Are you interst in donating money for plant trees ? So here is the chance. Come and Join with us</p>
                                  <!-- modal import-->                
                              <div class="text-center">
-                                    <a href="" class="btn btn-rounded green" data-toggle="modal" data-target="#RegistrationForm" value="Volunteer" name='register' data-user="Volunteer" >Register</a>
+                                   
                                    
                                    </div>
                             </div>
@@ -93,7 +84,7 @@
                                     <p>Are you volunteering organizations? Do you want to meet volunteers ? So here is the chance. Come and Join with us</p>
                                      <!-- modal import-->                
                                     <div class="text-center">
-                                    <a href="" class="btn btn-rounded green" data-toggle="modal" data-target="#RegistrationForm" value="organization" name='register' data-user="Organization">Register</a>
+                                    
                                    
                                    </div>
                                 </div>
@@ -103,4 +94,5 @@
                     </div>
             </div>
     </section>
+    @include('layouts.footer')
 @endsection

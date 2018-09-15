@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -45,7 +47,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('profile.Dashboard')->with('user',$user);
     }
 
     /**
@@ -56,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('profile.EditProfile')->with('user',$user);
     }
 
     /**
@@ -68,7 +72,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->firstname = $request->input('firstname');
+        $user->secondname = $request->input('secondname');
+        $user->email = $request->input('email');
+        $user->password =Hash::make($request->input('password'));
+        $user->address = $request->input('address');
+        $user->mobileno = $request->input('mobileno');
+        $user->save(); 
+
+        return redirect("/user/$id/edit")->with('success','Saved Changes');
     }
 
     /**
@@ -80,5 +93,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function editprofile($id)
+    {
+        
     }
 }

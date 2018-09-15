@@ -22,24 +22,33 @@
   <link href="{{asset('mdb/css/style.css')}}" rel="stylesheet">
 </head>
 <body>
+    
+    @yield('navbar')
+   
     <div id="app">
-       @include('layouts.header')
+       
 
         <main class="py-4">
             @yield('content')
         </main>
-        @include('layouts.footer')
+        
     </div>
 
      <!-- Scripts -->
      <script src="{{ asset('js/app.js') }}" defer></script>
      
     
-     <!-- Bootstrap tooltips -->
-     <script type="text/javascript" src="{{asset('mdb/js/popper.min.js')}}"></script>
-     <!-- Bootstrap core JavaScript -->
-     <script type="text/javascript" src="{{asset('mdb/js/bootstrap.min.js')}}"></script>
-     <!-- MDB core JavaScript -->
-     <script type="text/javascript" src="{{asset('mdb/js/mdb.min.js')}}"></script>
+     <!-- JQuery -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/js/mdb.min.js"></script>
+     
+    
 </body>
 </html>

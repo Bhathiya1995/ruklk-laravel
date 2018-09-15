@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('layouts.header')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -68,4 +68,6 @@
         </div>
     </div>
 </div>
+
+@include('layouts.footer');
 @endsection
