@@ -23,7 +23,7 @@
 
         <div class="form-group row">
                 {{Form::label('category',"Product Category",['class'=>'col-md-4 col-form-label text-md-right'])}}
-                {{Form::select('category', ['tree' => 'Tree','seed' => 'Seeds'],['class'=>'col-md-4 col-form-label text-md form-control'])}}
+                {{Form::select('category', ['land'=>'Land','tree' => 'Tree','seed' => 'Seeds'],['class'=>'col-md-4 col-form-label text-md form-control'])}}
                  @if ($errors->has('productName'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('productName') }}</strong>
@@ -49,6 +49,8 @@
                         <strong>{{ $errors->first('productPrice') }}</strong>
                     </span>
                 @endif
+                
+                
             </div>
 
             <div class="form-group row">

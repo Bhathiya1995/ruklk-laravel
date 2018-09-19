@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\product;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -47,8 +48,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('profile.Dashboard')->with('user',$user);
+        $products = Product::where('sellerId', $id)->get();
+        
+        
+        return view('profile.Dashboard')->with('products',$products);
     }
 
     /**

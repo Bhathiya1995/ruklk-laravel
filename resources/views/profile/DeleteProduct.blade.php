@@ -1,15 +1,13 @@
 @extends('layouts.profilelayout')
 
 @section('content')
-<!-- Section: Products v.2 -->
 <section class="text-center">
 
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
+        <h2 class="h1-responsive font-weight-bold text-center my-5">Delete Products</h2>
         <!-- Section description -->
         <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
-      
-         @include('inc.errormessage')
+        @include('inc.errormessage')
         <?php $i=0; ?>
         <div class="row">
         @if (count($products)>0)
@@ -43,7 +41,17 @@
                   <!-- Card footer -->
                   <div class="card-footer px-1">
                     <span class="float-left">Rs. {{$product->productPrice}}</span>
-                    
+                    <span class="float-right">
+                      {!!Form::open(['action'=>['ProductController@destroy', $product->id], 'method'=>'post', 'class'=>'pull-right']) !!}
+                        {{Form::hidden('_method','DELETE')}}
+                        <div class="row">
+                         
+                          <div class="col-sm-5">
+                        {{Form::Submit('Delete',['class'=>'btn btn-danger '])}}
+                          </div>
+                      </div>
+                      {!!Form::close()!!}
+                    </span>
                   </div>
                 </div>
                 <!-- Card content -->

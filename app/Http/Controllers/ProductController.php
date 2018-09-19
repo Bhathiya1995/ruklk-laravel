@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\product;
+use DB;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        
+        return Product::where('sellerId',"auth()->user('id')->id;")->first();
+       return view('profile.DeleteProduct')->with('products',$products);
     }
 
     /**
@@ -40,7 +43,7 @@ class ProductController extends Controller
             'productName'=>'required',
             'category'=>'required',
             'productDescription'=>'required',
-            'productPrice'=>'required',
+            'productPrice'=>'required|integer',
             'location'=>'required',
             'productImage'=>'required',
             'image'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -78,7 +81,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+       // $products = Product::all();
+        $products = Product::where('sellerId', $id)->get();
+        
+        //$products= DB::table('products')->where('sellerId',$id)->first();
+        
+        return view('profile.DeleteProduct')->with('products',$products);
     }
 
     /**
@@ -89,7 +97,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('profile.EditProduct');
     }
 
     /**
@@ -112,6 +120,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $products = Product::find($id);
+        $sellerid = $products->sellerId;
+        
+
+        $products->delete();
+        return redirect('/product/'.$sellerid)->with('success','Product Deleted');
     }
-}
+}   
