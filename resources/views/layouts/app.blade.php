@@ -28,7 +28,7 @@
     <div id="app">
        
 
-        <main class="py-4">
+        <main class="py-0 my-0">
             @yield('content')
         </main>
         
@@ -36,6 +36,7 @@
 
      <!-- Scripts -->
      <script src="{{ asset('js/app.js') }}" defer></script>
+     <script src="{{ asset('js/custom.js') }}" defer></script>
      
     
      <!-- JQuery -->

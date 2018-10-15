@@ -15,12 +15,12 @@
              @foreach ($products as $product) 
             
              <div class="col-md-4 mb-2">
-                <div class="card h-100">
+                <div class="card">
               <!-- Card -->
               <div class="card card-cascade narrower card-ecommerce" style="min-height:50px;">
                 <!-- Card image -->
                 <div class="view view-cascade overlay">
-                  <img src= "{{asset('Products/'.$product->productImage)}}" class="card-img-top" alt="sample photo">
+                  <img src= "{{asset('Products/'.$product->productImage)}}" class="card-img-top" alt="sample photo" >
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
