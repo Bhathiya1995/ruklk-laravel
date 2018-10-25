@@ -67,7 +67,7 @@
         </div>
 
         <div class="col-md-4 px-0 mx-0">
-            <div class="view" style="background-image: url('{{asset("images/loginback.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center; height:100% ">
+            <div class="view intro" style="background-image: url('{{asset("images/loginback.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center; height:100% ">
                 <div class="mask rgba-black-strong d-flex"></div>
                 <div class="container">
                     <div class="row d-flex flex-column w-100 h-50 justify-content-center">

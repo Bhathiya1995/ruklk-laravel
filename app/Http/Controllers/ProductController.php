@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\User;
 use App\product;
 use DB;
@@ -17,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         
-        return Product::where('sellerId',"auth()->user('id')->id;")->first();
+       return Product::where('sellerId',"auth()->user('id')->id;")->first();
        return view('profile.DeleteProduct')->with('products',$products);
     }
 
@@ -128,4 +129,37 @@ class ProductController extends Controller
         $products->delete();
         return redirect('/product/'.$sellerid)->with('success','Product Deleted');
     }
+
+    public function searchproducts(){
+        $search = Input::get('search');
+        $type = Input::get('type');
+
+        if($type=="" and $search==""){
+            $Products = Product::where('productName','LIKE','%'.$search.'%')->get();
+            return view('search.search')->with('searchproduct', $Products);
+        }
+        else if ($type == 'all'){
+            $Products = Product::where('productName','LIKE','%'.$search.'%')->get();
+            return view('search.search')->with('searchproduct', $Products);
+        }
+        else if($type == 'land'){
+            $Products = Product::where(['category'=> 'land'],['productName','LIKE','%'.$search.'%'])->get();
+            return view('search.search')->with('searchproduct', $Products);
+        }
+        else if($type == 'tree'){
+            $Products = Product::where(['category'=> 'tree'],['productName','LIKE','%'.$search.'%'])->get();
+            return view('search.search')->with('searchproduct', $Products);
+        }
+        else if($type == 'seed'){
+            $Products = Product::where(['category'=> 'seed'],['productName','LIKE','%'.$search.'%'])->get();
+            return view('search.search')->with('searchproduct', $Products);
+        }
+    }
+
+    public function showproduct($id){
+        $item = Product::find($id);
+        $seller = User::find($item->sellerId);
+        return view('search.viewproduct')->with('item',$item)->with('seller', $seller);
+    }
+
 }   

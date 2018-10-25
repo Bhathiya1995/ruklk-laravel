@@ -70,7 +70,6 @@
                     <div class="container">
                         <div class="row container">
                             <h3 class="white-text text-center">"The care of the Earth is our most ancient and most worthy, and after all, our most pleasing responsibility. ” </h3><br>
-                            <h6 class="white-text text-center font-weight-bold"> -Wendell Berry</h6>
                         </div>
                     </div>
                 </div>

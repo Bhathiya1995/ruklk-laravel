@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PageController@index');
+
 Route::resource('user','UserController');
 
 
@@ -21,3 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('product','ProductController');
+
+Route::get('/products/searchproduct', 'ProductController@searchproducts');
+Route::get('/products/searchproduct/{id}', 'ProductController@showproduct');
+
