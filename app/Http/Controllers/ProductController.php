@@ -63,8 +63,10 @@ class ProductController extends Controller
         $product->productDescription = $request->input('productDescription');
         $product->productPrice = $request->input('productPrice');
         $product->location = $request->input('location');
+        $product->linkLocation = $request->input('locationlink');
         $product->productImage = $new_name;
         $product->sellerId = auth()->user('id')->id;
+        $product->approval = 0 ;
 
         $product->save();
 
@@ -135,23 +137,23 @@ class ProductController extends Controller
         $type = Input::get('type');
 
         if($type=="" and $search==""){
-            $Products = Product::where('productName','LIKE','%'.$search.'%')->get();
+            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
             return view('search.search')->with('searchproduct', $Products);
         }
         else if ($type == 'all'){
-            $Products = Product::where('productName','LIKE','%'.$search.'%')->get();
+            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
             return view('search.search')->with('searchproduct', $Products);
         }
         else if($type == 'land'){
-            $Products = Product::where(['category'=> 'land'],['productName','LIKE','%'.$search.'%'])->get();
+            $Products = Product::where([['category','=','land'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
             return view('search.search')->with('searchproduct', $Products);
         }
         else if($type == 'tree'){
-            $Products = Product::where(['category'=> 'tree'],['productName','LIKE','%'.$search.'%'])->get();
+            $Products = Product::where([['category','=', 'tree'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
             return view('search.search')->with('searchproduct', $Products);
         }
         else if($type == 'seed'){
-            $Products = Product::where(['category'=> 'seed'],['productName','LIKE','%'.$search.'%'])->get();
+            $Products = Product::where([['category','=','seed'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
             return view('search.search')->with('searchproduct', $Products);
         }
     }

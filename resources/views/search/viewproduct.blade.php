@@ -22,6 +22,8 @@
                         <h3 class="text-capitalize"><i class="fa fa-money" aria-hidden="true"></i> Rs {{$item->productPrice}}.00</h3>
                         <h3 class="mt-5 text-capitalize"><i class="fa fa-location-arrow" aria-hidden="true"> {{$item->location}}</i></h3>
                         <h3 class="my-5 text-capitalize"><i class="fa fa-phone" aria-hidden="true"></i> {{$seller->mobileno}}</i></h3>
+
+                        <div id="map"></div>
                         
                     </div>
                 </div>
@@ -31,4 +33,15 @@
     </div>
 </div>
 
+<script>
+    function initMap(){
+        var uluru ={lat: -25.344, lng: 131.036};
+        var map = new google.maps.Map(document.getElementById('map'),{zoom: 4, center: uluru });
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+    
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAooDiOrI5DkJhCzc3MDARImiS1hTNCTqU&callback=initMap">
+</script>
 @include('layouts.footer')

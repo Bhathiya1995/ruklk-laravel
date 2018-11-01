@@ -6,9 +6,9 @@
 
 <div class="container-fluid pt-4">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 ">
             <div class="card">
-            <div class="card-body pb-1">
+            <div class="card-body pb-1 container">
                 <form class="form-inline active-cyan-4" action="/products/searchproduct">   
                     <input class="form-control form-control-sm mr-3 w-75 h-30" type="text" placeholder="Search" aria-label="Search" name="search">
                     <select class="browser-default custom-select mr-3" name="type">
@@ -29,7 +29,18 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-md-3"></div>
+    <div class="col-md-3 pl-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="grey-text d-flex justify-content-center">Advertisments</h2>
+                <hr>
+                <hr>
+                <a href="" type="button" class="btn btn-success d-flex justify-content-center">Post Advertisments</a>
+            </div>
+        </div>
+    </div>
+
+
     <div class="col-md-9">
         <div class="card">
             <div class="card-body">

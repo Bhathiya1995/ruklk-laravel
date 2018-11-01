@@ -26,3 +26,9 @@ Route::resource('product','ProductController');
 Route::get('/products/searchproduct', 'ProductController@searchproducts');
 Route::get('/products/searchproduct/{id}', 'ProductController@showproduct');
 
+
+
+Route::get('/admin/{id}', 'AdminController@viewadminpage');
+Route::get('/admin/{id}/approve', 'AdminController@approve');
+Route::get('/admin/{id}/approveproduct/{productid}', 'AdminController@approveproduct');
+Route::get('/admin/{id}/rejectproduct/{productid}', 'AdminController@rejectproduct');
