@@ -34,8 +34,19 @@
             <div class="card-body">
                 <h2 class="grey-text d-flex justify-content-center">Advertisments</h2>
                 <hr>
+                @foreach ($ads as $ads)
+                    <div class="row">
+                        <div class="card-image"> 
+                            <div class="view overlay px-3 py-2">
+                                <img src= "{{asset('Products/'.$ads->adimage)}}" class="w-100 img-thumbnail">
+                                <div class="mask flex-center rgba-white-light"></div>
+                            </div>
+                        </div>
+                            
+                    </div>
+                @endforeach
                 <hr>
-                <a href="" type="button" class="btn btn-success d-flex justify-content-center">Post Advertisments</a>
+                <a href="{{url('/ads')}}" type="button" class="btn btn-success d-flex justify-content-center">Post Advertisments</a>
             </div>
         </div>
     </div>

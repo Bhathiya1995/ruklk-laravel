@@ -75,6 +75,17 @@
                 </div>
             </div>
 
+            <section class="text-center my-5 intro">
+            <h2 class="h1-responsive green-text font-weight my-2">Events</h2>
+            
+            <div class="row">
+            
+            </div>
+            <hr>
+            
+        
+
+
     </section>
 
 

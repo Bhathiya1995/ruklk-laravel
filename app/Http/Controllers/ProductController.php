@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\User;
 use App\product;
+use App\Advertisment;
 use DB;
 
 class ProductController extends Controller
@@ -136,25 +137,27 @@ class ProductController extends Controller
         $search = Input::get('search');
         $type = Input::get('type');
 
+        $ads = Advertisment::where(['status'=>1])->get();
+
         if($type=="" and $search==""){
             $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
-            return view('search.search')->with('searchproduct', $Products);
+            return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if ($type == 'all'){
             $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
-            return view('search.search')->with('searchproduct', $Products);
+            return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if($type == 'land'){
             $Products = Product::where([['category','=','land'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
-            return view('search.search')->with('searchproduct', $Products);
+            return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if($type == 'tree'){
             $Products = Product::where([['category','=', 'tree'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
-            return view('search.search')->with('searchproduct', $Products);
+            return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if($type == 'seed'){
             $Products = Product::where([['category','=','seed'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
-            return view('search.search')->with('searchproduct', $Products);
+            return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\product;
+use App\Advertisment;
 
 class AdminController extends Controller
 {
@@ -33,4 +34,20 @@ class AdminController extends Controller
         $productDelete = \DB::table('products')->where('id',$productid)->delete();
         return redirect('/admin/'.$id.'/approve');
     }
+
+    public function approveads($id){
+        
+        $ads = Advertisment::where('status','=', 0)->get();
+        return view('admin.aproveads')->with('ads', $ads);
+    }
+
+    public function approvedadvertisment($id,$adid){
+        $ads = \DB::table('advertisments')->where('id',$adid)->update(['status'=>1]);     
+        return redirect('/admin/'.$id.'/approveads');
+     }
+
+     public function rejectadvertisment($id,$adid){
+        $ads = \DB::table('advertisments')->where('id',$adid)->update(['status'=>3]);     
+        return redirect('/admin/'.$id.'/approveads');
+     }
 }
