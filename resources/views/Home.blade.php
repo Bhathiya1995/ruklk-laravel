@@ -78,10 +78,20 @@
             <section class="text-center my-5 intro">
             <h2 class="h1-responsive green-text font-weight my-2">Events</h2>
             
-            <div class="row">
-            
-            </div>
+            @if(count($event)>0)
+                <div class="row d-flex justify-content-center">
+                @foreach($event as $event)
+                    <div class="col-md-3 col-sm-3 mx-3">
+                        <img src= "{{asset('Events/'.$event->adimage)}}" class="w-100 px-3 py-3  img-thumbnail d-flex justify-content-center">
+                    </div>
+                @endforeach
+                </div>
+            @else
+            @endif
             <hr>
+            <div>
+                <a href="{{url('/event')}}" class="btn light-green accent-4">Register Event</a>
+            </div>
             
         
 

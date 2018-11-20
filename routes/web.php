@@ -39,3 +39,8 @@ Route::get('/admin/{id}/rejectadvertisment/{adid}', 'AdminController@rejectadver
 Route::get('/ads', 'AdvertismentController@index');
 Route::post('/ads/adAds', 'AdvertismentController@store');
 
+Route::get('/event', 'EventController@index');
+Route::post('/event/addEvent', 'EventController@store');
+
+
+Route::get('/organization/{id}', 'OrganizationController@vieworganizationpage');

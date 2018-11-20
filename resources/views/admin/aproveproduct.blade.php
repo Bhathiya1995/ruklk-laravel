@@ -3,8 +3,8 @@
 @section('content')
 <main class="pt-5 mx-lg-5">
     <div class="card mb-4">
-        <div class="card-body">
-            <h3 class='grey-text text-center'>Products for aprovel</h3>
+        <div class="card-body light-blue lighten-1">
+            <h3 class='white-text text-center'>Products for aprovel</h3>
         </div>
     </div>
     <div class="card">
