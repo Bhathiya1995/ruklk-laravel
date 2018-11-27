@@ -44,3 +44,10 @@ Route::post('/event/addEvent', 'EventController@store');
 
 
 Route::get('/organization/{id}', 'OrganizationController@vieworganizationpage');
+
+Route::get('/chat', function (){
+    return view('chat.chat');
+});
+
+Route::get('/conversation/{id}', 'MessageController@getMessageFor');
+Route::post('/conversation/send', 'MessageController@send');

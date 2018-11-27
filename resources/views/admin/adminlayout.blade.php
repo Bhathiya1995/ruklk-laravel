@@ -34,9 +34,7 @@
      <script src="{{ asset('js/app.js') }}" defer></script>
      
     
-     <!-- JQuery -->
 
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <!-- Bootstrap tooltips -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
      <!-- Bootstrap core JavaScript -->

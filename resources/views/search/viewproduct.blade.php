@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="mb-5">
     @include('layouts.header')
 </div>
@@ -24,6 +25,10 @@
                         <h3 class="my-5 text-capitalize"><i class="fa fa-phone" aria-hidden="true"></i> {{$seller->mobileno}}</i></h3>
 
                         <div id="map"></div>
+
+                        <div class="fixed-bottom">
+                            @include('chat.chat')
+                        </div>
                         
                     </div>
                 </div>
