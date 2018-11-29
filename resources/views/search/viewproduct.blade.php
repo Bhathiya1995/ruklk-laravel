@@ -1,52 +1,127 @@
 @extends('layouts.app')
+<link href="{{asset('mdb/css/custom.css')}}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+
+
+
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="mb-5">
     @include('layouts.header')
 </div>
 @section('content')
 
-<div class="container-fluid pt-4">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card my-3">
-                <div class="card-body pb-1 container">
-                    <h2 class=" my-5  mx-5 h1-responsive text-capitalize font-weight-bold ">{{$item->productName}}</h2>
-                    
-                <div class="row">
-                    <div class="col-md-4 mx-5 ml-2">
-                        <img src= "{{asset('Products/'.$item->productImage)}}" class="w-100" alt="sample photo" >
-                    </div>
-                    <div class="col-md-6 ">
-                        <h6 clsss='mx-5 px-5 text-capitalize'> <i class="fa fa-user-o" aria-hidden="true"></i> {{$seller->firstname}} {{$seller->secondname}}</h6>
-                        <p class="py-4 grey-text text-capitalize"> <i class="fa fa-edit" aria-hidden="true"></i> {{$item->productDescription}}</p>
+    <div class="container">
 
-                        <h3 class="text-capitalize"><i class="fa fa-money" aria-hidden="true"></i> Rs {{$item->productPrice}}.00</h3>
-                        <h3 class="mt-5 text-capitalize"><i class="fa fa-location-arrow" aria-hidden="true"> {{$item->location}}</i></h3>
-                        <h3 class="my-5 text-capitalize"><i class="fa fa-phone" aria-hidden="true"></i> {{$seller->mobileno}}</i></h3>
+        <div class="row">
 
-                        <div id="map"></div>
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+
+
+
+                    <div class="panel-body">
+
+                        {!! Form::open(['action' => ['UserController@ratesellers', $item->id], 'method'=>'POST']) !!}
+
+                            {{ csrf_field() }}
+
+                            <div class="card">
+
+                                <div class="container-fliud">
+
+                                    <div class="wrapper row ">
+
+                                        <div class="preview col-md-6">
+
+
+
+                                            <div class="preview-pic tab-content">
+
+                                                <div class="tab-pane active" id="pic-1"><img src="{{asset('Products/'.$item->productImage)}}" /></div>
+
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="details col-md-6 pt-5">
+
+                                            <h3 class="product-title">{{$item->productName}}</h3>
+
+                                            <div class="rating">
+
+                                                <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $seller->userAverageRating }}" data-size="xs">
+
+                                                <input type="hidden" name="id" required="" value="{{ $seller->id }}">
+
+                                                <span class="review-no">422 reviews</span>
+
+                                                <input type="hidden" name="productid" required="" value="{{ $item->id }}">
+
+                                                <br/>
+
+                                                <button class="btn btn-success">Submit Review</button>
+
+                                            </div>
+
+                                            <p class="product-description">{{$item->productDescription}}</p>
+
+                                            <h4 class="price">current price: <span> Rs {{$item->productPrice}}.00</span></h4>
+
+                                            <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+
+
+
+                                            <div class="action">
+
+                                                <button class="add-to-cart btn btn-default" type="button">Buy</button>
+
+                                                <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        {!! Form::close() !!}
 
                         <div class="fixed-bottom">
                             @include('chat.chat')
                         </div>
-                        
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<script>
-    function initMap(){
-        var uluru ={lat: -25.344, lng: 131.036};
-        var map = new google.maps.Map(document.getElementById('map'),{zoom: 4, center: uluru });
-        var marker = new google.maps.Marker({position: uluru, map: map});
-    }
-    
-</script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAooDiOrI5DkJhCzc3MDARImiS1hTNCTqU&callback=initMap">
-</script>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        $("#input-id").rating();
+
+    </script>
 @include('layouts.footer')

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\product;
 use Illuminate\Support\Facades\Hash;
+use willvincent\Rateable\Rating;
 
 class UserController extends Controller
 {
@@ -113,5 +114,20 @@ class UserController extends Controller
     public function editprofile($id)
     {
         
+    }
+
+    public function ratesellers(Request $request, $pId){
+
+        request()->validate(['rate' => 'required']);
+        $user1 = User::first();
+
+        $user = User::find($request->id);
+        $rating = new Rating();
+        $rating->rating = $request->rate;
+        $rating->user_id = auth()->user()->id;
+
+        $user->ratings()->save($rating);
+        return  redirect('/products/searchproduct/'.$pId);
+
     }
 }

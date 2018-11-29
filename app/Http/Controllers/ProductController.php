@@ -8,6 +8,7 @@ use App\User;
 use App\product;
 use App\Advertisment;
 use DB;
+use willvincent\Rateable\Rating;
 
 class ProductController extends Controller
 {
@@ -164,7 +165,9 @@ class ProductController extends Controller
     public function showproduct($id){
         $item = Product::find($id);
         $seller = User::find($item->sellerId);
-        return view('search.viewproduct')->with('item',$item)->with('seller', $seller);
+        $rate = Rating::find($item->sellerId);
+
+        return view('search.viewproduct')->with('item',$item)->with('seller', $seller)->with('rate', $rate);
     }
 
 }   

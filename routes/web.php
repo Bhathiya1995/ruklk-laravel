@@ -42,12 +42,15 @@ Route::post('/ads/adAds', 'AdvertismentController@store');
 Route::get('/event', 'EventController@index');
 Route::post('/event/addEvent', 'EventController@store');
 
+Route::resource('organization','OrganizationController');
 
-Route::get('/organization/{id}', 'OrganizationController@vieworganizationpage');
 
 Route::get('/chat', function (){
     return view('chat.chat');
 });
 
+
 Route::get('/conversation/{id}', 'MessageController@getMessageFor');
 Route::post('/conversation/send', 'MessageController@send');
+
+Route::post('/rateseller/{id}', 'UserController@ratesellers');
