@@ -15,8 +15,10 @@
                 <i class="fa fa-table mr-3"></i>Add Products</a>
             <a href="/product/{{Auth::user()->id}}" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-map mr-3"></i> Delete Products</a>
-            <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <a href="/user/{{Auth::user()->id}}/vieworders" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-money mr-3"></i>Orders</a>
+            <a href="/user/{{Auth::user()->id}}/showprofilechat" class="list-group-item list-group-item-action waves-effect">
+                <i class="fa fa-money mr-3"></i>RukChat</a>
         </div>
     
     </div>

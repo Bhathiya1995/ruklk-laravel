@@ -12,4 +12,6 @@ class ProductsAndSellerController extends Controller
     public function buyproducts(){
         return view('search.search');
     }
+
+  
 }

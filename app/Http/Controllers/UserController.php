@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Order;
 use App\product;
 use Illuminate\Support\Facades\Hash;
 use willvincent\Rateable\Rating;
@@ -129,5 +130,20 @@ class UserController extends Controller
         $user->ratings()->save($rating);
         return  redirect('/products/searchproduct/'.$pId);
 
+    }
+
+    public function vieworders(){
+        $orders = Order::where('status','=',0)->get();
+        return view('profile.Orders')->with('orders', $orders);
+    }
+
+    public function approveorder($id, $orderId)
+    {
+        $orders = \DB::table('orders')->where('id',$orderId)->update(['status'=>1]);
+        return redirect('user/'.$id.'/vieworders');
+    }
+
+    public function showprofilechat(){
+        return view('chat.profilechat');
     }
 }

@@ -4,7 +4,7 @@
             <div class="card-header green accent-3">
                 <h4 class="white-text font-weight-bold">RukChat</h4>
             </div>
-            <div class="card-body" id="app1">
+            <div class="card-body" id="app">
                 <div class="fixed">
                     <p><i class="fa fa-twitch" aria-hidden="true"></i> Chat with {{$seller->firstname}} {{$seller->secondname}}</p>
                     <hr>

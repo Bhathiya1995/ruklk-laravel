@@ -26,7 +26,7 @@
         name: "ChatApp",
         mounted(){
 
-            Echo.private(`messages${this.user.id}`)
+            Echo.private(`messages.${this.user.id}`)
                 .listen('NewMessage', (e)=>{
                     this.handleIncoming(e.message);
                 });
@@ -68,7 +68,10 @@
                     this.saveNewMessage(message);
                 }
                 alert(message.text);
-            }
+            },
+
+            
+
 
 
         },

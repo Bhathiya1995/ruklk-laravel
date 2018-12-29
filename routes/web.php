@@ -14,7 +14,9 @@
 Route::get('/', 'PageController@index');
 
 Route::resource('user','UserController');
-
+Route::get('/user/{id}/vieworders', 'UserController@vieworders');
+Route::get('/user/{id}/vieworders/{orderid}', 'UserController@approveorder');
+Route::get('/user/{id}/showprofilechat', 'UserController@showprofilechat');
 
 
 Auth::routes();
@@ -25,6 +27,7 @@ Route::resource('product','ProductController');
 
 Route::get('/products/searchproduct', 'ProductController@searchproducts');
 Route::get('/products/searchproduct/{id}', 'ProductController@showproduct');
+Route::get('/products/searchproduct/buy/{id}', 'ProductController@buyproduct');
 
 
 
@@ -52,5 +55,8 @@ Route::get('/chat', function (){
 
 Route::get('/conversation/{id}', 'MessageController@getMessageFor');
 Route::post('/conversation/send', 'MessageController@send');
+Route::get('/contacts', 'MessageController@get');
+Route::get('/profileconversation/{id}', 'MessageController@getProfileMessagesFor');
+Route::post('/conversation/profilesend', 'MessageController@profilesend');
 
 Route::post('/rateseller/{id}', 'UserController@ratesellers');

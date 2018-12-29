@@ -10,17 +10,21 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
 
-
+<style>
+    .zoom{
+        zoom: 130%;
+    }
+</style>
 
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<div class="mb-5">
+<div class="mb-5 zoom">
     @include('layouts.header')
 </div>
 @section('content')
-
-    <div class="container">
-
+    
+    <div class="container zoom">
+        
         <div class="row">
 
             <div class="col-md-12">
@@ -30,7 +34,6 @@
 
 
                     <div class="panel-body">
-
                         {!! Form::open(['action' => ['UserController@ratesellers', $item->id], 'method'=>'POST']) !!}
 
                             {{ csrf_field() }}
@@ -50,7 +53,6 @@
                                                 <div class="tab-pane active" id="pic-1"><img src="{{asset('Products/'.$item->productImage)}}" /></div>
 
                                             </div>
-
 
 
                                         </div>
@@ -85,13 +87,19 @@
 
                                             <div class="action">
 
-                                                <button class="add-to-cart btn btn-default" type="button">Buy</button>
+                                            <button class="add-to-cart btn btn-default" type="button"><a href="{{url('products/searchproduct/buy/'.$item->id)}}">Buy </a></button>
 
                                                 <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
 
                                             </div>
+                                            <div class="mt-2">
+                                                @include('inc.errormessage')
+                                            </div>
 
                                         </div>
+                                    
+                                        
+                                        
 
                                     </div>
 
@@ -101,11 +109,10 @@
                             </div>
 
                         {!! Form::close() !!}
-
+                        
                         <div class="fixed-bottom">
                             @include('chat.chat')
-                        </div>
-
+                        </div> 
 
                     </div>
 

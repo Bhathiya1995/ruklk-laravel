@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\User;
+use App\Order;
 use App\product;
 use App\Advertisment;
 use DB;
@@ -169,5 +170,17 @@ class ProductController extends Controller
 
         return view('search.viewproduct')->with('item',$item)->with('seller', $seller)->with('rate', $rate);
     }
+    
+    public function buyproduct($id){
+        $item = Product::find($id);
+        $order = new Order();
+        $order->sellerId = $item->sellerId;
+        $order->buyerId =  auth()->user('id')->id;
+        $order->productId = $id;
+        $order->status = 0;
+        
+        $order->save();
+        return redirect("/products/searchproduct/".$id)->with('success','Order made successfully');
 
+    }
 }   

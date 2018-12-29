@@ -9,5 +9,8 @@ class product extends Model
     public function user(){
         return $this->belongsTo('App\User'); 
     }
+    public function ordertype(){
+        return $this->hasMany('App\Order'); 
+    }
 }
 
