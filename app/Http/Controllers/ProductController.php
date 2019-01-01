@@ -183,4 +183,49 @@ class ProductController extends Controller
         return redirect("/products/searchproduct/".$id)->with('success','Order made successfully');
 
     }
-}   
+
+    //Mobile app controllers
+
+    public function getSearchdata(){
+        
+    }
+
+    public function MobileSearchProduct(Request $request){
+
+         
+        $search = data_get($request, 'search');
+        $type = data_get($request, 'type');
+
+        
+
+        if($type=="" and $search==""){
+            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
+           
+            return $Products;
+        }
+        else if ($type == 'all'){
+            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
+            return $Products;
+        }
+        else if($type == 'land'){
+            $Products = Product::where([['category','=','land'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
+            return $Products;
+        }
+        else if($type == 'tree'){
+            $Products = Product::where([['category','=', 'tree'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
+            return $Products;
+        }
+        else if($type == 'seed'){
+            $Products = Product::where([['category','=','seed'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
+            return $Products;
+        }
+    }
+
+    public function MobileShowProduct($id){
+        $item = Product::find($id);
+        $seller = User::find($item->sellerId);
+        
+        return ['item'=>$item,'seller'=>$seller];
+    }
+
+    }   
