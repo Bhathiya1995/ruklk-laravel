@@ -1,6 +1,6 @@
 <template>
     <div class="conversation">
-        <MessagesFeed :messages="messages" :seller="this.seller"/>
+        <!-- <MessagesFeed :messages="messages" :seller="this.seller"/> -->
         <MessageComposer @send="sendMessage"/>
     </div>
 

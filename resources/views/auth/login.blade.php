@@ -4,12 +4,23 @@
 
 <div class="row px-0 mx-0">
     <div class="col-md-8 px-0 mx-0">
-    
+        
         <div class="justify-content-center align-center">            
                 <div class="mx-5 py-5">
+                       
                     <div class="text-center">
                         <h3 class="green-text mb-5 mt-5"><strong>Welcome Back</strong></h3>
                     </div>
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @if (session('warning'))
+                        <div class="alert alert-warning">
+                            {{ session('warning') }}
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                     @csrf
                     

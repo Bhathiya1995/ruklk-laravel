@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Order;
 use App\product;
+use App\Favourite;
 use Illuminate\Support\Facades\Hash;
 use willvincent\Rateable\Rating;
 
@@ -50,10 +51,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $products = Product::where('sellerId', $id)->get();
+        $fav = Favourite::where('BuyerId', $id)->where('status','=',0)->get();
         
         
-        return view('profile.Dashboard')->with('products',$products);
+        return view('profile.Dashboard')->with('fav',$fav);
     }
 
     /**
@@ -141,6 +142,12 @@ class UserController extends Controller
     {
         $orders = \DB::table('orders')->where('id',$orderId)->update(['status'=>1]);
         return redirect('user/'.$id.'/vieworders');
+    }
+
+    public function removefav($id, $productId)
+    {
+        $orders = \DB::table('favourites')->where('productId',$productId)->update(['status'=>1]);
+        return redirect('user/'.$id);
     }
 
     public function showprofilechat(){

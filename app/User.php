@@ -5,11 +5,14 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use willvincent\Rateable\Rateable;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+
+class User extends Authenticatable 
 {
     use Notifiable;
     use Rateable;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -33,4 +36,10 @@ class User extends Authenticatable
         
         return $this->hasMany('App\Products');
     }
+
+    public function verifyUser(){
+        return $this->hasOne('App\VerifyUser');
+    }
+
+   
 }

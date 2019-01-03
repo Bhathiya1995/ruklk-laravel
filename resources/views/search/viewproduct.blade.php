@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.view')
 <link href="{{asset('mdb/css/custom.css')}}" rel="stylesheet">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -7,12 +7,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="  crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
 
 <style>
     .zoom{
-        zoom: 130%;
+        font-size: 155%
+        
     }
 </style>
 
@@ -83,21 +85,23 @@
 
                                             <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 
+                                            
 
-
-                                            <div class="action">
+                                            <div class="action zoom">
 
                                             <button class="add-to-cart btn btn-default" type="button"><a href="{{url('products/searchproduct/buy/'.$item->id)}}">Buy </a></button>
 
-                                                <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-
+                                                <button class="like btn btn-default" type="button"><a href="{{url('products/searchproduct/fav/'.$item->id)}}"><span class="fa fa-heart"></span></a></button>
+                                                {{-- <a class="btn btn-primary" href="{{url('/products/searchproduct/'.$item->id.'/chat/'.Auth::user()->id)}}"> Chat With Seller</a> --}}
+                                                    
                                             </div>
-                                            <div class="mt-2">
+                                            
+                                            <div class="mt-2 zoom">
                                                 @include('inc.errormessage')
                                             </div>
 
                                         </div>
-                                    
+                                        @include('chat.chat')
                                         
                                         
 
@@ -110,9 +114,8 @@
 
                         {!! Form::close() !!}
                         
-                        <div class="fixed-bottom">
-                            @include('chat.chat')
-                        </div> 
+                            
+                        
 
                     </div>
 
@@ -131,4 +134,7 @@
         $("#input-id").rating();
 
     </script>
-@include('layouts.footer')
+    <div class="zoom">
+        @include('layouts.footer')
+    </div>
+
