@@ -9,7 +9,7 @@
     </div>
     <div class="card">
         <div class="card-body px-5 py-3 ">
-            @if(count($product)>1)
+            @if(count($product)>0)
                 @foreach ($product as $product)
                     <div class="row border my-3 px-3">
                         <div class="col-md-2">

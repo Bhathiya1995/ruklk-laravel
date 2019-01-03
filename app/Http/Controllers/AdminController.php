@@ -20,7 +20,6 @@ class AdminController extends Controller
     }
 
     public function approve($id){
-        
         $product = Product::where('approval','=', 0)->get();
         return view('admin.aproveproduct')->with('product', $product);
     }

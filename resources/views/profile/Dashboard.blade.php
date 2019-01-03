@@ -2,54 +2,35 @@
 
 @section('content')
 <!-- Section: Products v.2 -->
-<section class="text-center">
+<section class="">
 
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold text-center my-5">Your Best Selling Products</h2>
+        <h2 class="h1-responsive font-weight-bold text-center my-5">Your Favorite Products</h2>
         <!-- Section description -->
         <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
       
          @include('inc.errormessage')
         <?php $i=0; ?>
-        <div class="row">
-        @if (count($products)>0)
+        
+        @if (count($fav)>0)
 
-             @foreach ($products as $product) 
-            
-             <div class="col-md-4 mb-2">
-                <div class="card h-100">
-              <!-- Card -->
-              <div class="card card-cascade narrower card-ecommerce" style="min-height:50px;">
-                <!-- Card image -->
-                <div class="view view-cascade overlay">
-                  <img src= "{{asset('Products/'.$product->productImage)}}" class="card-img-top" alt="sample photo">
-                  <a>
-                    <div class="mask rgba-white-slight"></div>
-                  </a>
+             @foreach ($fav as $fav) 
+             
+             <div class="px-2 favrow my-2">
+               <div class="row">
+                 <div class="col-md-11">
+                 <p class="favrow-title my-1 "><a href="{{url('products/searchproduct/'.$fav->productId)}}">{{$fav->productType->productName}} </a></p>
+                    <p class="favrow-description">{{$fav->productType->productDescription}}</p>
+                 </div>
+                 <div class="col-md-1">
+                    <a href="{{url('user/'.Auth::user()->id.'/fav/'.$fav->productId)}}"><i class="fa fa-heart favcansel"></i></a>
                 </div>
-                <!-- Card image -->
-                <!-- Card content -->
-                <div class="card-body card-body-cascade text-center">
-                  <!-- Category & Title -->
-                  
-                  <h4 class="card-title my-4">
-                    <strong>
-                    <a href="">{{$product->productName}}</a>
-                    </strong>
-                  </h4>
-                  <!-- Description -->
-                  <p class="card-text">{{$product->productDescription}}
-                  </p>
-                  <!-- Card footer -->
-                  <div class="card-footer px-1">
-                    <span class="float-left">Rs. {{$product->productPrice}}</span>
-                    
-                  </div>
-                </div>
-                <!-- Card content -->
-              </div>
-              <!-- Card -->
-            </div></div>
+
+               </div>
+             
+             
+             </div>
+             
             <? $i=$i+1; ?>
             @if($i==3)
               </div>

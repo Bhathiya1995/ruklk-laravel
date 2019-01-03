@@ -12,5 +12,8 @@ class product extends Model
     public function ordertype(){
         return $this->hasMany('App\Order'); 
     }
+    public function favtype(){
+        return $this->hasMany('App\Favourit'); 
+    }
 }
 

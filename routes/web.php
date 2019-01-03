@@ -17,17 +17,22 @@ Route::resource('user','UserController');
 Route::get('/user/{id}/vieworders', 'UserController@vieworders');
 Route::get('/user/{id}/vieworders/{orderid}', 'UserController@approveorder');
 Route::get('/user/{id}/showprofilechat', 'UserController@showprofilechat');
+Route::get('/user/{id}/fav/{orderid}', 'UserController@removefav');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('/user/logout','Auth\RegisterController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PageController@index')->name('home');
 
 Route::resource('product','ProductController');
 
 Route::get('/products/searchproduct', 'ProductController@searchproducts');
 Route::get('/products/searchproduct/{id}', 'ProductController@showproduct');
 Route::get('/products/searchproduct/buy/{id}', 'ProductController@buyproduct');
+Route::get('/products/searchproduct/fav/{id}', 'ProductController@favproduct');
+Route::get('/products/searchproduct/{productid}/chat/{id}', 'AuthRequireController@viewPersonalChat');
 
 
 

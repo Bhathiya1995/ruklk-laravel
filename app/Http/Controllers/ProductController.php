@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use App\User;
 use App\Order;
 use App\product;
+use App\Favourite;
 use App\Advertisment;
 use DB;
 use willvincent\Rateable\Rating;
@@ -183,6 +184,19 @@ class ProductController extends Controller
         return redirect("/products/searchproduct/".$id)->with('success','Order made successfully');
 
     }
+
+    public function favproduct($id){
+        $item = Product::find($id);
+        $fav = new Favourite();
+        $fav->sellerId = $item->sellerId;
+        $fav->buyerId =  auth()->user('id')->id;
+        $fav->productId = $id;
+        $fav->status = 0;
+
+        $fav->save();
+        return redirect("/products/searchproduct/".$id)->with('success','Added to favourite list');
+    }
+
 
     //Mobile app controllers
 

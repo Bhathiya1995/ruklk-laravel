@@ -13,10 +13,14 @@
                         <h5 class="text-uppercase pt-md-1 pt-sm-1 pt-1 pb-md-1 pb-sm-3 pb-5 white-text subtext-header mt-2 mb-4 wow fadeInDown" data-wow-delay="0.3s">Make a green world for everyone</h5>
                     
                             <!-- Searchbar -->
-                        <div class="active-white-3 active-white-4 mb-4">
-                            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                        </div>
-                        <button type="button" class="btn btn-outline-white waves-effect">Search</button>
+                            <form action="/products/searchproduct">
+                                    <div class="active-white-3 active-white-4 mb-4">
+                                        <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+                                        <input hidden name="type" value="all">
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-white waves-effect">Search</button>
+                            </form>
+                        
                     </div>
                 </div>
             </div>
