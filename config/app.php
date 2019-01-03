@@ -148,6 +148,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        //html purifier
+        Mews\Purifier\PurifierServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -213,6 +216,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Pusher' => Pusher\Pusher::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        //html purifier
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 

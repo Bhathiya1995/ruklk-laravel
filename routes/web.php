@@ -60,3 +60,17 @@ Route::get('/profileconversation/{id}', 'MessageController@getProfileMessagesFor
 Route::post('/conversation/profilesend', 'MessageController@profilesend');
 
 Route::post('/rateseller/{id}', 'UserController@ratesellers');
+
+
+// Ruk Wiki routes
+
+    Route::resource('categories','CategoryController',['except'=> ['create']]);   
+    Route::get('/blog/{slug}', ['as'=> 'blog.single', 'uses' => 'WikiController@getSingle']) 
+    ->where('slug' , '[\w\d\-\_]+');
+    Route::get('blog', ['uses' => 'WikiController@getIndex', 'as' => 'blog.index']);
+    Route::get('/contact', 'blogController@getcontact');
+    Route::get('/about', 'blogController@getabout');
+    Route::get('/rukwiki', 'blogController@getindex');
+    Route::get('category/{category_id}','CategoryController@getCategory')->name('category');
+
+    Route::resource('posts', 'PostsController');
