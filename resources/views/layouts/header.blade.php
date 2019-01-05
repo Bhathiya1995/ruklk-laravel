@@ -16,7 +16,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                         <a class="nav-link" href="#"><i class="fa fa-wikipedia-w" aria-hidden="true"></i>Ruk Wiki</a>
+                         <a class="nav-link" href="{{url('rukwiki')}}"><i class="fa fa-wikipedia-w" aria-hidden="true"></i>Ruk Wiki</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href=""><i class="fa fa-forumbee" aria-hidden="true"></i>Forum chat</a>

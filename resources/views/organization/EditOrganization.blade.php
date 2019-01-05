@@ -8,7 +8,7 @@
         <!-- Section description -->
         <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
         @include('inc.errormessage')
-        {!! Form::open(['action' => ['OrganizationController@update', $user->id], 'method'=>'POST']) !!}
+        {!! Form::open(['action' => ['OrganizationController@update', Auth::user()->id], 'method'=>'POST']) !!}
         <div class="form-group row">
             {{Form::label('firstname',"First name",['class'=>'col-md-4 col-form-label text-md-right'])}}
             {{Form::text('firstname',$user->firstname,['class'=>'col-md-4 col-form-label text-md form-control'])}}
@@ -79,7 +79,9 @@
             @endif
         </div>
     {{Form::hidden('_method','PUT')}}
-    {{Form::submit('Save',['class'=>'btn btn-primary'])}}
+    <div class="form-group row">
+        {{Form::submit('Save',['class'=>'btn btn-primary ml-5 pl-5 '])}}
+    </div>
     {!! Form::close() !!}
 
 @endsection

@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use App\User;
 use App\product;
 use App\Advertisment;
+use App\Event;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function __construct(){
+        
+        
+    }
+
     public function viewadminpage($id){
         $product = Product::all();
         $treecount = Product::where('category','=','tree')->count();
@@ -17,6 +24,7 @@ class AdminController extends Controller
         $seedcount = Product::where('category','=','seed')->count();
         $counts = array('treecount'=>$treecount, 'landcount'=>$landcount, 'seedcount'=>$seedcount);
         return view('admin.admin')->with('product',$product)->with($counts);
+        
     }
 
     public function approve($id){
@@ -49,4 +57,24 @@ class AdminController extends Controller
         $ads = \DB::table('advertisments')->where('id',$adid)->update(['status'=>3]);     
         return redirect('/admin/'.$id.'/approveads');
      }
+
+     public function showevents(){
+        $event = Event::where('status','=', 0)->get();
+        return view('admin.showevent')->with('event', $event);
+     }
+      public function approveevent($id, $eventid){
+        $event = \DB::table('events')->where('id',$eventid)->update(['status'=>1]);     
+        return redirect('/admin/'.$id.'/showevents');
+      }
+
+      public function showusers(){
+        $users = User::all();
+        return view('admin.showusers')->with('users', $users);
+     }
+    
+     public function banneduser ($id, $userid){
+        $ads = \DB::table('users')->where('id',$userid)->update(['verified'=>2]);
+        return redirect('/admin/'.$id.'/showusers'); 
+     }
+
 }

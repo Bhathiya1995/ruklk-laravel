@@ -234,7 +234,7 @@ class ProductController extends Controller
             return $Products;
         }
     }
-
+//mobile app api controllers
     public function MobileShowProduct($id){
         $item = Product::find($id);
         $seller = User::find($item->sellerId);

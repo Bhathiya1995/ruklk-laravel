@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class OrganizationController extends Controller
 {
@@ -47,7 +48,9 @@ class OrganizationController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        
+        return view('organization.AddOrganizationLogo')->with('user',$user);
     }
 
     /**
@@ -91,7 +94,7 @@ class OrganizationController extends Controller
         $user->mobileno = $request->input('mobileno');
         $user->save();
 
-        return redirect("/organization/$id/edit")->with('success','Saved Changes');
+        return redirect("/organization/".$id."/edit")->with('success','Saved Changes');
     }
 
     /**
@@ -103,5 +106,18 @@ class OrganizationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addorgaizationlogo(Request $request, $id){
+        $image =$request->file('orgImage');
+        $new_name = rand().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('./Products'),$new_name);
+        
+        DB::table('org_image')->insert([
+            ['org_id'=>$id, 'org_image'=>$new_name],
+            
+        ]);
+
+        return redirect('/organization/'.$id);
     }
 }

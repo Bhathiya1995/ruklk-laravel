@@ -9,9 +9,11 @@ use App\product;
 use App\Favourite;
 use Illuminate\Support\Facades\Hash;
 use willvincent\Rateable\Rating;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public $successStatus=200;
     /**
      * Display a listing of the resource.
      *
@@ -152,5 +154,16 @@ class UserController extends Controller
 
     public function showprofilechat(){
         return view('chat.profilechat');
+    }
+
+    //Mobile api controllers
+    
+    public function mobileFav($id){
+        $fav = Favourite::where('BuyerId', $id)->where('status','=',0)->get();
+    }
+
+    public function getdata(){
+        $user = Auth::user(); 
+        return response()->json(['success' => $user], $this-> successStatus);
     }
 }

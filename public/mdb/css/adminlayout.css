@@ -32,3 +32,29 @@
 a{
   color: white;
 } 
+
+.userrow{
+  background-color: lightgreen;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+
+.userrow-title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 5px;
+  color: darkslategray
+}
+
+.userrow-description{
+  font-size: 15px;
+  margin-left: 5px;
+  color: darkslategray
+}
+.userbanned{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50%;
+  
+}

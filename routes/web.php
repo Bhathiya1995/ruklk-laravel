@@ -34,15 +34,23 @@ Route::get('/products/searchproduct/buy/{id}', 'ProductController@buyproduct');
 Route::get('/products/searchproduct/fav/{id}', 'ProductController@favproduct');
 Route::get('/products/searchproduct/{productid}/chat/{id}', 'AuthRequireController@viewPersonalChat');
 
+Route::get('/products/searchorganization', 'ProductController@searchorganization');
 
 
-Route::get('/admin/{id}', 'AdminController@viewadminpage');
-Route::get('/admin/{id}/approve', 'AdminController@approve');
-Route::get('/admin/{id}/approveproduct/{productid}', 'AdminController@approveproduct');
-Route::get('/admin/{id}/rejectproduct/{productid}', 'AdminController@rejectproduct');
-Route::get('/admin/{id}/approveads', 'AdminController@approveads');
-Route::get('/admin/{id}/approvedadvertisment/{adid}', 'AdminController@approvedadvertisment');
-Route::get('/admin/{id}/rejectadvertisment/{adid}', 'AdminController@rejectadvertisment');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/admin/{id}', 'AdminController@viewadminpage');
+    Route::get('/admin/{id}/approve', 'AdminController@approve');
+    Route::get('/admin/{id}/approveproduct/{productid}', 'AdminController@approveproduct');
+    Route::get('/admin/{id}/rejectproduct/{productid}', 'AdminController@rejectproduct');
+    Route::get('/admin/{id}/approveads', 'AdminController@approveads');
+    Route::get('/admin/{id}/approvedadvertisment/{adid}', 'AdminController@approvedadvertisment');
+    Route::get('/admin/{id}/rejectadvertisment/{adid}', 'AdminController@rejectadvertisment');
+    Route::get('/admin/{id}/showevents', 'AdminController@showevents');
+    Route::get('/admin/{id}/showevents/{eventid}', 'AdminController@approveevent');
+    Route::get('/admin/{id}/showusers', 'AdminController@showusers');
+    Route::get('/admin/{id}/showusers/{userid}', 'AdminController@banneduser');
+});
+
 
 Route::get('/ads', 'AdvertismentController@index');
 Route::post('/ads/adAds', 'AdvertismentController@store');
@@ -51,7 +59,7 @@ Route::get('/event', 'EventController@index');
 Route::post('/event/addEvent', 'EventController@store');
 
 Route::resource('organization','OrganizationController');
-
+Route::put('/organization/{id}/addlogo', 'OrganizationController@addorgaizationlogo');
 
 Route::get('/chat', function (){
     return view('chat.chat');

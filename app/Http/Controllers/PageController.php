@@ -8,7 +8,7 @@ use App\Event;
 class PageController extends Controller
 {
     public function index(){
-        $event = Event::all();
+        $event = Event::where('status','=',1)->get();
         return view('Home')->with('event',$event);
     }
 }

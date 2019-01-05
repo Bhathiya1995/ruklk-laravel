@@ -11,6 +11,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Mail;
 use App\Mail\VerifyMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 
 class RegisterController extends Controller
@@ -50,6 +52,18 @@ class RegisterController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
+    public function register(Request $request)
+{
+    $this->validator($request->all())->validate();
+
+    event(new Registered($user = $this->create($request->all())));
+
+   // $this->guard()->login($user);
+
+    return $this->registered($request, $user)
+                    ?: redirect($this->redirectPath());
+}
 
     /**
      * Get a validator for an incoming registration request.
