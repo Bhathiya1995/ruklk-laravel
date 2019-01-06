@@ -59,9 +59,16 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="/user/{{Auth::user()->id}}">Profile</a>
-                            <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
-                            <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
+                            @if(Auth::user()->type == 'seller' || Auth::user()->type == 'buyer' || Auth::user()->type == 'volunteer' )
+                                <a class="nav-link" href="/user/{{Auth::user()->id}}">Profile</a>
+                            @elseif(Auth::user()->type == 'organization')
+                                <a class="nav-link" href="/organization/{{Auth::user()->id}}">Profile</a>
+                            @elseif (Auth::user()->type == 'admin')
+                                <a class="nav-link" href="/admin/{{Auth::user()->id}}">Profile</a>
+                                <a class="dropdown-item" href="{{ route('posts.index') }}">Posts</a>
+                                <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
+                            @endif
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

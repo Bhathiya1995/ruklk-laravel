@@ -140,26 +140,26 @@ class ProductController extends Controller
         $search = Input::get('search');
         $type = Input::get('type');
 
-        $ads = Advertisment::where(['status'=>1])->get();
+        $ads = Advertisment::where(['status'=>1])->paginate(3);
 
         if($type=="" and $search==""){
-            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
+            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->paginate(5);
             return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if ($type == 'all'){
-            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->get();
+            $Products = Product::where([['productName','LIKE','%'.$search.'%'],['approval','=',1]])->paginate(5);
             return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if($type == 'land'){
-            $Products = Product::where([['category','=','land'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
+            $Products = Product::where([['category','=','land'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->paginate(5);
             return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if($type == 'tree'){
-            $Products = Product::where([['category','=', 'tree'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
+            $Products = Product::where([['category','=', 'tree'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->paginate(5);
             return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
         else if($type == 'seed'){
-            $Products = Product::where([['category','=','seed'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->get();
+            $Products = Product::where([['category','=','seed'],['approval','=',1],['productName','LIKE','%'.$search.'%']])->paginate(5);
             return view('search.search')->with('searchproduct', $Products)->with('ads',$ads);
         }
     }
@@ -240,6 +240,10 @@ class ProductController extends Controller
         $seller = User::find($item->sellerId);
         
         return ['item'=>$item,'seller'=>$seller];
+    }
+    public function viewfav($id) {
+        $fav = Favourite::where('BuyerId', $id)->where('status','=',0)->get();
+        return $fav;
     }
 
     }   

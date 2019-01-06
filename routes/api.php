@@ -31,10 +31,11 @@ Route::group(['prefix' => 'auth'], function () {
       ], function() {
           Route::get('logout', 'AuthController@logout');
           Route::get('user', 'AuthController@user');
+          Route::post('viewfavProduct/{id}', 'ProductController@viewfav');
        
       });
 });
 
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::get('userdata', 'UserController@getdata');
+    Route::post('userdata', 'UserController@getdata');
 });

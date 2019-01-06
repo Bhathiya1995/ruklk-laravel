@@ -34,17 +34,18 @@
             <div class="card-body">
                 <h2 class="grey-text d-flex justify-content-center">Advertisments</h2>
                 <hr>
-                @foreach ($ads as $ads)
+                @foreach ($ads as $ad)
                     <div class="row">
                         <div class="card-image"> 
                             <div class="view overlay px-3 py-2">
-                                <img src= "{{asset('Products/'.$ads->adimage)}}" class="w-100 img-thumbnail">
+                                <img src= "{{asset('Products/'.$ad->adimage)}}" class="w-100 img-thumbnail">
                                 <div class="mask flex-center rgba-white-light"></div>
                             </div>
                         </div>
                             
                     </div>
                 @endforeach
+                {{$ads->links()}}
                 <hr>
                 <a href="{{url('/ads')}}" type="button" class="btn btn-success d-flex justify-content-center">Post Advertisments</a>
             </div>
@@ -57,19 +58,21 @@
             <div class="card-body">
                 @if(count($searchproduct)>0)
                 
-                    @foreach($searchproduct as $searchproduct)
+                    @foreach($searchproduct as $searchproducts)
                     <div class="row border border-succes my-2 mx-2"> 
                         <div class="col-md-3">
-                            <img src= "{{asset('Products/'.$searchproduct->productImage)}}" class="w-75" alt="sample photo" >  
+                            <img src= "{{asset('Products/'.$searchproducts->productImage)}}" class="w-75" alt="sample photo" >  
                         </div>
                         <div class="col-md-8">
-                            <h3 class="text-capitalize my-4">{{$searchproduct->productName}}</h3 >
-                            <p class='px-3'>{{$searchproduct->productDescription}}</p>
-                            <p class="text-right"> <a class="green-text" href="searchproduct/{{$searchproduct->id}}">See More..</a></p>
+                            <h3 class="text-capitalize my-4">{{$searchproducts->productName}}</h3 >
+                            <p class='px-3'>{{$searchproducts->productDescription}}</p>
+                            <p class='px-3 text-warning font-weight-bold'>Rs. {{$searchproducts->productPrice}}</p>
+                            <p class="text-right"> <a class="green-text" href="searchproduct/{{$searchproducts->id}}">See More..</a></p>
                         </div>
                     </div>    
                         
                     @endforeach
+                    {{$searchproduct->links()}}
                 @else
                     <p class="d-flex justify-content-center"> Sorry !!! No matching items </p>
                 @endif

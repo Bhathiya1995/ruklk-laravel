@@ -109,15 +109,17 @@ class OrganizationController extends Controller
     }
 
     public function addorgaizationlogo(Request $request, $id){
+        $validatedData = $request->validate([
+            'orgImage' => 'required',]);
+
         $image =$request->file('orgImage');
         $new_name = rand().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('./Products'),$new_name);
         
-        DB::table('org_image')->insert([
-            ['org_id'=>$id, 'org_image'=>$new_name],
-            
-        ]);
+        $userdetails = User::find($id);
+        $userdetails->logo = $new_name;
+        $userdetails->save();
 
-        return redirect('/organization/'.$id);
+        return redirect('/organization/'.$id)->with('success','Logo added');
     }
 }

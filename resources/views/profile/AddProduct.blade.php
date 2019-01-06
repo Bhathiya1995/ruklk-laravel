@@ -6,7 +6,7 @@
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold text-center my-5">Add Products</h2>
         <!-- Section description -->
-        <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+        <p class="grey-text text-center w-responsive mx-auto mb-5">Add your new plants, seeds. You can rent your lands for planting and get benifits. You can earn benifits by doing something valuable to you and the country</p>
         @include('inc.errormessage')
 
         {!! Form::open(['action' => ['ProductController@store'], 'method'=>'POST','enctype'=>'multipart/form-data']) !!}

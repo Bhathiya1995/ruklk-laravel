@@ -24,17 +24,19 @@
 </head>
 
   <body>
+
 @include('layouts.wikiheader')
+{{-- <br>
 <br>
 <br>
-<br>
-<br>
+<br> --}}
 
 
 
-  <div class="container">
+  <div class="container mt-5">
      @include('partials.messages')
-
+  </div>
+  <div class="container-fluid">
     @yield('content')
   </div> 
 

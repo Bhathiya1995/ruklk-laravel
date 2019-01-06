@@ -7,10 +7,10 @@
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold text-center my-5">Your Favorite Products</h2>
         <!-- Section description -->
-        <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+        <p class="grey-text text-center w-responsive mx-auto mb-5">These are your favourite products. Do you like to see again</p>
       
          @include('inc.errormessage')
-        <?php $i=0; ?>
+       
         
         @if (count($fav)>0)
 
@@ -31,12 +31,8 @@
              
              </div>
              
-            <? $i=$i+1; ?>
-            @if($i==3)
-              </div>
-              <div class="row">
-              <?php $i=0; ?>  
-            @endif
+           
+           
 
             @endforeach
             

@@ -26,8 +26,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                     <div class="md-form">
-                                            <label for="name">{{ __('First Name') }}</label>
-                                            <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
+                                            
+                                            <input id="firstname" placeholder="First Name" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
                                                 @if ($errors->has('firstname'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('firstname') }}</strong>
@@ -38,8 +38,8 @@
                             </div>
                             <div class="col-md-6">
                                     <div class="md-form">
-                                            <label for="secondname" >{{ __('Second Name') }}</label>
-                                                <input id="secondname" type="text" class="form-control{{ $errors->has('secondname') ? ' is-invalid' : '' }}" name="secondname" value="{{ old('secondname') }}" required autofocus>
+                                            
+                                                <input id="secondname" placeholder="Second Name" type="text" class="form-control{{ $errors->has('secondname') ? ' is-invalid' : '' }}" name="secondname" value="{{ old('secondname') }}" required autofocus>
                                                 @if ($errors->has('secondname'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('secondname') }}</strong>
@@ -53,7 +53,7 @@
                                     <option value="buyer">Buyer</option>
                                     <option value="seller">Seller</option>
                                     <option value="volunteer">Volunteer</option>
-                                    <option value="seller">Organization</option>
+                                    <option value="organization">Organization</option>
                                 </select>    
                                 @if ($errors->has('type'))
                                     <span class="invalid-feedback" role="alert">
@@ -63,8 +63,8 @@
                             
                         </div>
                         <div class="md-form">
-                            <label for="email">{{ __('E-Mail Address') }}</label>
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                            
+                                <input id="email" placeholder="E mail" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -74,8 +74,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                     <div class="md-form">
-                                            <label for="password">{{ __('Password') }}</label>
-                                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                            
+                                                <input id="password" placeholder="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                                                 @if ($errors->has('password'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('password') }}</strong>
@@ -85,15 +85,15 @@
                             </div>
                             <div class="col-md-6">
                         <div class="md-form">
-                                <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                
+                                    <input id="password-confirm" placeholder="Re-Enter Password" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                             </div>
                         </div>
                         
                         <div class="md-form">
-                            <label for="address">{{ __('Address') }}</label>
-                             <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus>
+                            
+                             <input id="address" placeholder="Address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus>
                               @if ($errors->has('address'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('address') }}</strong>
@@ -102,8 +102,8 @@
                         </div>
                         
                         <div class="md-form">
-                            <label for="mobileno">{{ __('Mobile No') }}</label>
-                                <input id="mobileno" type="text" class="form-control{{ $errors->has('mobileno') ? ' is-invalid' : '' }}" name="mobileno" value="{{ old('mobileno') }}" required autofocus>
+                            
+                                <input id="mobileno" placeholder="Mobile no" type="text" class="form-control{{ $errors->has('mobileno') ? ' is-invalid' : '' }}" name="mobileno" value="{{ old('mobileno') }}" required autofocus>
                                 @if ($errors->has('mobileno'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('mobileno') }}</strong>

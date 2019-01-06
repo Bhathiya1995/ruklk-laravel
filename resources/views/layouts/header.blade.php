@@ -22,7 +22,10 @@
                             <a class="nav-link" href=""><i class="fa fa-forumbee" aria-hidden="true"></i>Forum chat</a>
                         </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{url('products/searchproduct')}}"><i class="fa fa-search" aria-hidden="true"></i>Products</a>
+                <a class="nav-link" href="{{url('products/searchproduct')}}"><i class="fa fa-search" aria-hidden="true"></i>Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('organizationsearch')}}"><i class="fa fa-search" aria-hidden="true"></i>Organizations</a>
                     </li>
                 <!-- Authentication Links -->
                 @guest
@@ -42,7 +45,13 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="/user/{{Auth::user()->id}}">Profile</a>
+                            @if(Auth::user()->type == 'seller' || Auth::user()->type == 'buyer' || Auth::user()->type == 'volunteer' )
+                                <a class="nav-link" href="/user/{{Auth::user()->id}}">Profile</a>
+                            @elseif(Auth::user()->type == 'organization')
+                                <a class="nav-link" href="/organization/{{Auth::user()->id}}">Profile</a>
+                            @elseif (Auth::user()->type == 'admin')
+                                <a class="nav-link" href="/admin/{{Auth::user()->id}}">Profile</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

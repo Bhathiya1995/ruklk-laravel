@@ -8,6 +8,7 @@ use App\Order;
 use App\product;
 use App\Favourite;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 use willvincent\Rateable\Rating;
 use Illuminate\Support\Facades\Auth;
 
@@ -156,14 +157,26 @@ class UserController extends Controller
         return view('chat.profilechat');
     }
 
+
+    public function searchorganization(){
+        $search = Input::get('search');
+        if($search == ''){
+            $users = User::where('type','=','organization')->paginate(5);
+             return view('search.searchorganization')->with('users',$users);
+        }else{
+            $users = User::where([['firstname','LIKE','%'.$search.'%'],['type','=','organization']])->paginate(5);
+            return view('search.searchorganization')->with('users',$users);
+        }
+        
+    }
+
     //Mobile api controllers
     
-    public function mobileFav($id){
-        $fav = Favourite::where('BuyerId', $id)->where('status','=',0)->get();
-    }
 
     public function getdata(){
         $user = Auth::user(); 
         return response()->json(['success' => $user], $this-> successStatus);
     }
+
+    
 }

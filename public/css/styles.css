@@ -9,7 +9,7 @@
 .jumbotron {
   background-image: url("../wikiimages/flower.jpg");
   background-size: cover;
-  min-height: 400px;
+  min-height: 450px;
 }
 
 .container {
@@ -25,9 +25,13 @@
   min-height: 200px;
 }
 
+.postborder{
+  border-radius: 5px;
+}
+
 .topic{
      font-size: 50px;
-     color: white;
+     color: black;
      
 }
 

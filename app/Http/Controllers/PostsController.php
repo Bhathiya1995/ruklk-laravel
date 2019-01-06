@@ -148,8 +148,7 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
-        $post->body = Purifier::clean($request->input('body'));
-        //$post->body = $request->input('body');
+        $post->body = $request->input('body');
 
         if ($request->hasFile('featured_image')){
 

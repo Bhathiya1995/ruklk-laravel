@@ -49,6 +49,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/{id}/showevents/{eventid}', 'AdminController@approveevent');
     Route::get('/admin/{id}/showusers', 'AdminController@showusers');
     Route::get('/admin/{id}/showusers/{userid}', 'AdminController@banneduser');
+    Route::get('/admin/{id}','AdminController@vieweditadmin');
+    Route::put('/admin/{id}/updateadmin','AdminController@updateadmin');
 });
 
 
@@ -60,6 +62,7 @@ Route::post('/event/addEvent', 'EventController@store');
 
 Route::resource('organization','OrganizationController');
 Route::put('/organization/{id}/addlogo', 'OrganizationController@addorgaizationlogo');
+Route::get('/organizationsearch','UserController@searchorganization');
 
 Route::get('/chat', function (){
     return view('chat.chat');

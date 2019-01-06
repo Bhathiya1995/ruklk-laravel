@@ -16,8 +16,8 @@
                 {!! Form::open(['action' => ['AdvertismentController@store'], 'method'=>'POST','enctype'=>'multipart/form-data']) !!}
         
                 <div class="md-form ">
-                    {{Form::label('productName',"Product name",['class'=>'col-md-12 col-form-label'])}}
-                    {{Form::text('productName','',['class'=>'col-md-12 col-form-label text-md form-control'])}}
+                    
+                    {{Form::text('productName','',['class'=>'col-md-12 col-form-label text-md form-control', 'placeholder'=>'Product Name'])}}
                     @if ($errors->has('productName'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('productName') }}</strong>
@@ -26,8 +26,8 @@
                 </div>
                 
                 <div class="md-form mt-5">
-                    {{Form::label('ownerName',"Owner name",['class'=>'col-md-4 col-form-label'])}}
-                    {{Form::text('ownerName','',['class'=>'col-md-12 col-form-label text-md form-control'])}}
+                    
+                    {{Form::text('ownerName','',['class'=>'col-md-12 col-form-label text-md form-control','placeholder'=>'Owner Name'])}}
                     @if ($errors->has('ownerName'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('ownerName') }}</strong>
@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="md-form mt-5">
-                    {{Form::label('ownerMobileno',"Mobile No",['class'=>'col-md-4 col-form-label'])}}
-                    {{Form::text('ownerMobileno','',['class'=>'col-md-12 col-form-label text-md form-control'])}}
+                    
+                    {{Form::text('ownerMobileno','',['class'=>'col-md-12 col-form-label text-md form-control','placeholder'=>'Mobile Number'])}}
                     @if ($errors->has('ownerMobileno'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('ownerMobileno') }}</strong>

@@ -29,7 +29,7 @@
 
    <section class="text-center my-5">
        <h2 class="h1-responsive green-text font-weight my-2">What is Ruk.LK...?</h2>
-       <p class="lead grey-text w-responsive mx-auto mb-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nam iusto amet ullam perferendis nemo assumenda quis. Unde ea possimus tempore nostrum sed soluta explicabo excepturi eum, sint eligendi officiis?</p>
+       <p class="lead grey-text w-responsive mx-auto mb-5">Ruk.lk is a web-based application which involve for increase the seeds and plants in Sri Lanka as well as get commercial benefits to users. Ruk.lk is a web-based platform to meet sellers who sell the trees and buyers who like to buy trees. In the other side it’s a platform for volunteers to meet organizations which plants trees in island wide and give support to the organization.</p>
        <div class="row">
            <div class="col-md-3">
                 <i class="fa fa-money fa-3x green-text" aria-hidden="true"></i>
@@ -39,17 +39,17 @@
            <div class="col-md-3">
                 <i class="fa fa-tree fa-3x green-text" aria-hidden="true"></i>
                 <h5 class="font-weight-bold my-4">Seller</h5>
-                <p class="grey-text mb-md-0 mb-5">Are you interst in buying plants ? So here is the chance. Come and Join with us</p>
+                <p class="grey-text mb-md-0 mb-5">Are you interst in selling plants ? So here is the chance. Come and Join with us</p>
            </div>
            <div class="col-md-3">
                 <i class="fa fa-user-secret fa-3x green-text" aria-hidden="true"></i>
                 <h5 class="font-weight-bold my-4">Volunteer</h5>
-                <p class="grey-text mb-md-0 mb-5">Are you interst in buying plants ? So here is the chance. Come and Join with us</p>
+                <p class="grey-text mb-md-0 mb-5">Are you interst in Volunteering  ? So here is the chance. Come and Join with us. Find volunteering orgnaizations for donations</p>
            </div>
            <div class="col-md-3">
                 <i class="fa fa-building-o fa-3x green-text" aria-hidden="true"></i>
                 <h5 class="font-weight-bold my-4">Organization</h5>
-                <p class="grey-text mb-md-0 mb-5">Are you interst in buying plants ? So here is the chance. Come and Join with us</p>
+                <p class="grey-text mb-md-0 mb-5">Are you interst in Volunteering ? So here is the chance. Come and Join with us. Find volunteers to increase your donations</p>
            </div>
        </div>
    </section>
@@ -62,9 +62,8 @@
                <img class="img-fluid" src="{{asset('images/RukWiki Ui.png')}}">
             </div>
             <div class="col-lg-5 my-5">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga voluptatem neque ipsa ab, adipisci eligendi iusto beatae incidunt delectus? Doloribus incidunt consequuntur voluptas sapiente vitae ullam veritatis fuga quidem cupiditate!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga voluptatem neque ipsa ab, adipisci eligendi iusto beatae incidunt delectus? Doloribus incidunt consequuntur voluptas sapiente vitae ullam veritatis fuga quidem cupiditate!</p>
-
+                <p>Ruk wiki is a web service which provide knowledge to the people who are intersted in Agricultue staff. It provides informations related planting trees, informations about ayurvedic plants, tips of planting trees.. etc.  </p>
+                <p>You can get informations according to different types of categrories such as Tips, Herbal plants.. etc</p>
             </div>
         </div>
 
@@ -84,11 +83,14 @@
             
             @if(count($event)>0)
                 <div class="row d-flex justify-content-center">
-                @foreach($event as $event)
+                @foreach($event as $events)
                     <div class="col-md-3 col-sm-3 mx-3">
-                        <img src= "{{asset('Events/'.$event->adimage)}}" class="w-100 px-3 py-3  img-thumbnail d-flex justify-content-center">
+                        <img src= "{{asset('Events/'.$events->adimage)}}" class="w-100 px-3 py-3  img-thumbnail d-flex justify-content-center">
                     </div>
                 @endforeach
+                <div class="row d-flex justify-content-center my-2">
+                    {{$event->links()}}
+                </div>
                 </div>
             @else
             @endif

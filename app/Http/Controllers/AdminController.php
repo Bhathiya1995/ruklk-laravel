@@ -9,6 +9,7 @@ use App\product;
 use App\Advertisment;
 use App\Event;
 use Illuminate\Support\Facades\Auth;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -17,18 +18,39 @@ class AdminController extends Controller
         
     }
 
-    public function viewadminpage($id){
-        $product = Product::all();
-        $treecount = Product::where('category','=','tree')->count();
-        $landcount = Product::where('category','=','land')->count();
-        $seedcount = Product::where('category','=','seed')->count();
-        $counts = array('treecount'=>$treecount, 'landcount'=>$landcount, 'seedcount'=>$seedcount);
-        return view('admin.admin')->with('product',$product)->with($counts);
+    public function vieweditadmin($id){
+        $user = User::find($id);
+        return view('admin.admin')->with('user',$user);
+    }
+
+    public function updateadmin(Request $request ,$id){
+        
+        $this->validate($request,[
+            'firstname' => 'required|string|max:255',
+            'secondname' => 'required|string|max:255',
+            
+            'email' => 'required',
+            'password' => 'required|string|min:6',
+            'address' => 'required|string|max:255',
+            'mobileno' => 'required|string|max:255',
+            
+        ]);
+
+        $user = User::find($id);
+        $user->firstname = $request->input('firstname');
+        $user->secondname = $request->input('secondname');
+        $user->email = $request->input('email');
+        $user->password =Hash::make($request->input('password'));
+        $user->address = $request->input('address');
+        $user->mobileno = $request->input('mobileno');
+        $user->save(); 
+
+        return redirect('/admin/'.$id)->with('success','Saved Changes');
         
     }
 
     public function approve($id){
-        $product = Product::where('approval','=', 0)->get();
+        $product = Product::where('approval','=', 0)->paginate(5);
         return view('admin.aproveproduct')->with('product', $product);
     }
 
@@ -44,7 +66,7 @@ class AdminController extends Controller
 
     public function approveads($id){
         
-        $ads = Advertisment::where('status','=', 0)->get();
+        $ads = Advertisment::where('status','=', 0)->paginate(5);
         return view('admin.aproveads')->with('ads', $ads);
     }
 
@@ -59,7 +81,7 @@ class AdminController extends Controller
      }
 
      public function showevents(){
-        $event = Event::where('status','=', 0)->get();
+        $event = Event::where('status','=', 0)->paginate(5);
         return view('admin.showevent')->with('event', $event);
      }
       public function approveevent($id, $eventid){
@@ -68,7 +90,7 @@ class AdminController extends Controller
       }
 
       public function showusers(){
-        $users = User::all();
+        $users = User::paginate(5);
         return view('admin.showusers')->with('users', $users);
      }
     

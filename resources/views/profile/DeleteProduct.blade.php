@@ -6,9 +6,9 @@
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold text-center my-5">Delete Products</h2>
         <!-- Section description -->
-        <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+        <p class="grey-text text-center w-responsive mx-auto mb-5">Delete your unapropriate products from our web site. You have to remove products that are currently unavilable. Deleting product will reduce unwanted orders from customers</p>
         @include('inc.errormessage')
-        <?php $i=0; ?>
+        
         <div class="row">
         @if (count($products)>0)
 
