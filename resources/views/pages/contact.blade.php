@@ -3,8 +3,6 @@
 @section('title'.'|contact')
 
 @section('content')
-
-  
         <div class="row">
             <div class="col-md-12">
               <h1>Contact us</h1>

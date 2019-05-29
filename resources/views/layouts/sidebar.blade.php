@@ -2,12 +2,12 @@
 <div class="sidebar-fixed position-fixed justify-content-between">
 
         <a class="wrapper waves-effect" style="padding-top:10pppx">
-        <img src="{{asset('images/logo.png')}}" style="width:60%; height:auto;" alt="">
+        <img src="{{asset('images/logo.png')}}" style="width:60%; height:auto;" class="mt-4 mx-3" alt="">
         </a> 
     
         <div class="list-group list-group-flush ">
             <a href="/user/{{Auth::user()->id}}" class="list-group-item list-group-item-action waves-effect">
-                <i class="fa fa-pie-chart mr-3"></i>Dashboard
+                <i class="fa fa-pie-chart mr-3"></i>Favourites
             </a>
             <a href="/user/{{Auth::user()->id}}/edit" class="list-group-item list-group-item-action waves-effect">
                 <i class="fa fa-user mr-3"></i>Profile</a>

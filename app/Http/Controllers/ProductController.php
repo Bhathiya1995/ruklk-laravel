@@ -48,7 +48,7 @@ class ProductController extends Controller
             'productName'=>'required',
             'category'=>'required',
             'productDescription'=>'required',
-            'productPrice'=>'required|integer',
+            'productPrice'=>'required|',
             'location'=>'required',
             'productImage'=>'required',
             'image'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -76,7 +76,7 @@ class ProductController extends Controller
 
         
         
-        return redirect("/product/create")->with('success','Product added successfully');
+        return redirect("/product/create")->with('success','Product added successfully. Wait til Admin admin approve');
         
     }
 
@@ -89,9 +89,9 @@ class ProductController extends Controller
     public function show($id)
     {
        // $products = Product::all();
-        $products = Product::where('sellerId', $id)->get();
+        // $products = Product::where(['sellerId', $id])->get();
         
-        //$products= DB::table('products')->where('sellerId',$id)->first();
+        $products= DB::table('products')->where('sellerId','=',$id)->where('approval','!=',4)->get();
         
         return view('profile.DeleteProduct')->with('products',$products);
     }
@@ -127,12 +127,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        
-        $products = Product::find($id);
+        $product = \DB::table('products')->where('id',$id)->update(['approval'=>4]); 
+         $products = Product::find($id);
         $sellerid = $products->sellerId;
         
 
-        $products->delete();
+        // $products->delete();
         return redirect('/product/'.$sellerid)->with('success','Product Deleted');
     }
 

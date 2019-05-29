@@ -16,14 +16,12 @@
                     <a class="dropdown-item" href="#">Event Approve</a>
                   </div>
                 </div>
-        </div> --}}
+
+            </div> --}}
 
     <a href="{{url('organization/'.Auth::user()->id.'/edit')}}" class="list-group-item list-group-item-action waves-effect  blue darken-1 white-text">
             <i class="fa fa-table mr-3 mt-2"></i>Edit Details</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect  blue darken-1 white-text">
-            <i class="fa fa-map mr-3 mt-2"></i>Maps</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect  blue darken-1 white-text">
-            <i class="fa fa-money mr-3 mt-2"></i>Orders</a>
+        
 
     </div>
 

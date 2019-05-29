@@ -1,10 +1,11 @@
-@extends('main') 
+@extends('layouts.app') 
 
-@section('title'.'|Homepage')
+{{-- @section('title'.'|Homepage') --}}
 
+@include('layouts.wikiheader')
 @section('content')
 
-        
+{{--         
     <div class="row" >
             <div class="col-md-12 ">
                <div class="jumbotron  "> 
@@ -16,9 +17,25 @@
             
               </div>
             </div>
-    </div> <!-- end of row -->
+            
+    </div> <!-- end of row --> --}}
+  <div class="view jarallax intro " data-jarallx='{"speed":0.5}' style="background-image: url('../wikiimages/wiki back.jpg'); height:50%" >
+      <div class="mask rgba-green-light d-flex justyfy-content-center align-items-center"> 
+            <div class="container">
+                  <div class="row ">
+                      <div class="col-md-12 white-text text-center">
+                          <h1 class="display-3 mb-0 pt-md-5 pt-5 white-text font-weight-bold wow">Ruk
+                              <a class="heartBeat white-text font-weight-bold">Wiki</a>
+                          </h1>
+                          <h5 class="text-uppercase pt-md-1 pt-sm-1 pt-1 pb-md-1 pb-sm-3 pb-5 white-text subtext-header mt-2 mb-4 wow fadeInDown" data-wow-delay="0.3s">Make a green world for everyone</h5>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </div> 
+
      
-  <div class="row container-fluid justify-content-center">
+  <div class="my-5 row container-fluid justify-content-center">
          <div class="col-md-8">
              
             @foreach($posts as $post)
@@ -61,7 +78,7 @@
       </div>
 
 
-    
+      
 
 @stop
 

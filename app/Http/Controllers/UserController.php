@@ -77,7 +77,7 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response   
      */
     public function update(Request $request, $id)
     {
@@ -144,7 +144,8 @@ class UserController extends Controller
     public function approveorder($id, $orderId)
     {
         $orders = \DB::table('orders')->where('id',$orderId)->update(['status'=>1]);
-        return redirect('user/'.$id.'/vieworders');
+        // return redirect('user/'.$id.'/vieworders');
+        return back();
     }
 
     public function removefav($id, $productId)

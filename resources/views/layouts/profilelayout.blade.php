@@ -27,7 +27,7 @@
     @include('layouts.sidebar')
     
     <div id="app">
-            
+             
                     
      <main class="pt-4 mx-lg-5">
         <div class="card mb-4 wow fadeIn">

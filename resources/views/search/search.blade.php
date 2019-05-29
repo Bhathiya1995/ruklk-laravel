@@ -47,7 +47,7 @@
                 @endforeach
                 {{$ads->links()}}
                 <hr>
-                <a href="{{url('/ads')}}" type="button" class="btn btn-success d-flex justify-content-center">Post Advertisments</a>
+                <a href="{{url('/ads')}}" type="btn button" class="btn btn-success d-flex justify-content-center">Post Advertisments</a>
             </div>
         </div>
     </div>

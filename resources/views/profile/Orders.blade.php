@@ -3,8 +3,8 @@
 @section('content')
 <main class="pt-5 px-1">
     <div class="card mb-4">
-        <div class="card-body light-blue lighten-1">
-            <h3 class='white-text text-center'>Your Orders</h3>
+        <div class="card-body lighten-1">
+            <h3 class='grey-text text-center'>Your Orders</h3>
         </div>
     </div>
     <div class="card">
@@ -39,16 +39,14 @@
                                     <h1><i class=" aicon fa fa-check" aria-hidden="true"></i></h1>
                                     </a>
                                 </div>
-                                <div class="col-md-6">
-                                    <a href="{{url('admin/'.Auth::user()->id.'/rejectproduct/'.$orders->productType->id)}}">
-                                        <h1><i class="aicon fa fa-window-close" aria-hidden="true"></i></h1>
-                                    </a>  
-                                </div>
+                                
                             </div>
                         </div>
                         
                     </div>
                 @endforeach
+            @else
+                    <h1>No orders</h1>
             @endif
         </div>
     </div>

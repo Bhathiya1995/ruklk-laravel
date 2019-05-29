@@ -19,7 +19,7 @@
                          <a class="nav-link" href="{{url('rukwiki')}}"><i class="fa fa-wikipedia-w" aria-hidden="true"></i>Ruk Wiki</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href=""><i class="fa fa-forumbee" aria-hidden="true"></i>Forum chat</a>
+                            <a class="nav-link" href="{{url('/thread')}}"><i class="fa fa-forumbee" aria-hidden="true"></i>Forum</a>
                         </li>
                     <li class="nav-item">
                 <a class="nav-link" href="{{url('products/searchproduct')}}"><i class="fa fa-search" aria-hidden="true"></i>Products</a>

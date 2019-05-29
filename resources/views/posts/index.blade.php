@@ -1,13 +1,17 @@
-@extends('main')
+@extends('layouts.app') 
+
+
+
+@include('layouts.wikiheader')
 
 @section('title', '| All Posts')
 
 @section ('content')
-<div class="col-md-3" style="float: right;">
+<div class="col-md-3 mt-5" style="float: right;">
     <a href="{{ route('posts.create')}} " class="btn btn-lg btn-block btn-primary btn-h1-spacing">Create New Post </a>
 </div>
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-10 mx-5 font-weight-bold">
         <h1>All Posts</h1>
     </div>
     <div class="col-md-12">
@@ -15,8 +19,8 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        <table class="table">
+    <div class="col-md-12 font-weight-bold">
+        <table class="table mx-3">
             <thead>
                 <th></th>
                 <th>Title</th>

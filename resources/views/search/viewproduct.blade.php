@@ -83,7 +83,7 @@
 
                                             <h4 class="price">current price: <span> Rs {{$item->productPrice}}.00</span></h4>
 
-                                            <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                                        
 
                                             
 
@@ -99,9 +99,11 @@
                                             <div class="mt-2 zoom">
                                                 @include('inc.errormessage')
                                             </div>
-
+                                            <hr>
+                                            @include('chat.chat')
+                                            <br>
                                         </div>
-                                        @include('chat.chat')
+                                        
                                         
                                         
 

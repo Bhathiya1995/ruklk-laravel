@@ -1,5 +1,5 @@
-@extends('main')
-
+@extends('layouts.app')
+@include('layouts.wikiheader')
 @section('title', '| Create New Post')
 
 @section ('headSection')
@@ -25,13 +25,13 @@
 
 @section('content')
  
- <div class="row">
+ <div class="row mt-5 pt-5 px-5">
     <div clss="col-md-8 col-md-offset-2 ">
         <h1>Create New Post</h1>
         <hr>
     </div>
  </div>
-
+<div class="mx-5">
     {!! Form::open(array('route' => 'posts.store','data-parsley-validate' => '' , 'files'=> true)) !!}
 
         {{ Form::label('title','Title:') }}
@@ -64,6 +64,7 @@
         {{ Form::submit('Create Post', array('class'=> 'btn btn-success btn-lg btn-block' ,'style' => 'margin-top:20px;' )) }}
 
     {!! Form::close() !!}
+  <div class="mx-5">
   </div>
 </div>  
 

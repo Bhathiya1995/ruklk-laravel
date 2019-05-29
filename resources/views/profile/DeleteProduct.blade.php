@@ -3,6 +3,10 @@
 @section('content')
 <section class="text-center">
 
+        {{-- Search   --}}
+        
+
+              
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold text-center my-5">Delete Products</h2>
         <!-- Section description -->
@@ -58,12 +62,8 @@
               </div>
               <!-- Card -->
             </div></div>
-            <? $i=$i+1; ?>
-            @if($i==3)
-              </div>
-              <div class="row">
-              <?php $i=0; ?>  
-            @endif
+            
+            
 
             @endforeach
             

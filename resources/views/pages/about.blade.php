@@ -1,7 +1,7 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title'.'| about')
-
+@include('layouts.wikiheader')
 @section('content')
 
 
@@ -9,7 +9,19 @@
 
 
 <!-- container -->
-<div class="container-team " style="background-image: url('{{asset("wikiimages/hands.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center; height:75% ">
+<div class="view jarallax intro " style="background-image: url('{{asset("wikiimages/hands.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center; height:50% ">
+    <div class="mask rgba-green-light d-flex justyfy-content-center align-items-center">
+            <div class="container">
+                    <div class="row ">
+                        <div class="col-md-12 white-text text-center">
+                            <h1 class="display-3 mb-0 pt-md-5 pt-5 white-text font-weight-bold wow">Ruk
+                                <a class="heartBeat white-text font-weight-bold">Team</a>
+                            </h1>
+                            <h5 class="text-uppercase pt-md-1 pt-sm-1 pt-1 pb-md-1 pb-sm-3 pb-5 white-text subtext-header mt-2 mb-4 wow fadeInDown" data-wow-delay="0.3s">Make a green world for everyone</h5>
+                        </div>
+                    </div>
+                </div>
+    </div>
     <div class="container">
       <br>
       <br>

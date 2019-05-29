@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="col-md-4">
-        <div class="card">
+        <div class="card" style="width: 400px">
             <div class="card-header green accent-3">
                 <h4 class="white-text font-weight-bold">RukChat</h4>
             </div>

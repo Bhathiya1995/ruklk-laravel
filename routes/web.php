@@ -77,6 +77,14 @@ Route::post('/conversation/profilesend', 'MessageController@profilesend');
 
 Route::post('/rateseller/{id}', 'UserController@ratesellers');
 
+//Routes of forum 
+
+Route::resource('thread','ThreadController');
+Route::get('/thread','ThreadController@forum');
+// Route::get('/thread/test','ThreadController@index'); 
+Route::resource('comment','CommentController',['only'=>['update','destroy']]);
+Route::post('comment/create/{thread}','CommentController@addThreadComment')->name('threadcomment.store');
+
 
 // Ruk Wiki routes
 

@@ -3,7 +3,7 @@
 @section('content')
 <section class="text-center">
 
-        <!-- Section heading -->
+        <!-- Section heading -->   
         <h2 class="h1-responsive font-weight-bold text-center my-5 ">Edit Your Details</h2>
         <!-- Section description -->
         <p class="grey-text text-center w-responsive mx-5 px-5 mb-5">Update your details. Update your essential informations like mobile numebr, company address which helps buyers to contact with you.</p>
